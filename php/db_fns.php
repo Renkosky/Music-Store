@@ -14,7 +14,6 @@ function db_result_to_array($result) {
    for ($count=0; $row = $result->fetch_assoc(); $count++) {
      $res_array[$count] = $row;
    }
-
    return $res_array;
  }
  ?>

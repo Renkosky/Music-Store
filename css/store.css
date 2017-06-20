@@ -11,7 +11,7 @@
 .titlewrap{
   width: 100%;
   background-size:cover;
-  background-image: url("../image/firecracker.jpg");
+  background-image: url("../images/firecracker.jpg");
   /*background-color: rgba(9, 0, 10, 0.86);*/
 }
 .layer{
@@ -80,12 +80,12 @@
   color: #428bca;
 }
 #movie1{
-  background-image: url("../image/jojo.jpg");
+  background-image: url("../images/jojo.jpg");
 }
 #movie2{
-  background-image: url("../image/lovecity.jpg");
+  background-image: url("../images/lovecity.jpg");
 }
 #game{
-  background-image: url("../image/P5.jpg");
+  background-image: url("../images/P5.jpg");
 
 }
