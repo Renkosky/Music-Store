@@ -24,13 +24,6 @@ a{
   box-shadow: -0.1px -0.1px 2px  rgb(62, 62, 62) inset;
   font-family:sans-serif;
 }
-#loginbarinput{
-  margin-top: 20px;
-  border-radius: 4px;
-  color: rgb(255, 255, 255);
-  background-color: rgb(106, 134, 255);
-  box-shadow: -0.1px -0.1px 2px  rgb(62, 62, 62) inset;
-}
 .footer{
   padding-top:40px;
   text-align: center;
@@ -42,4 +35,11 @@ a{
   border-radius: 4px;
   background-color:rgb(255, 83, 52);
   color: rgb(255, 255, 255);
+}
+#loginbarinput{
+  margin-top: 20px;
+  border-radius: 4px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(106, 134, 255);
+  box-shadow: -0.1px -0.1px 2px  rgb(62, 62, 62) inset;
 }

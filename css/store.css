@@ -53,6 +53,7 @@
   background-color: rgb(255, 255, 255);
 }
 .bs-footer{
+  bottom:0px;
   padding-top: 50px;
   padding-bottom: 50px;
   margin-top: 20px;
@@ -62,6 +63,7 @@
 }
 .formarea{
     margin: 0 20% 10% 20%;
+    min-height: 700px;
 }
 .formtext{
   padding: 50px 10px 10px 10px;

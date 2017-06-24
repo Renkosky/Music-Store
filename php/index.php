@@ -1,21 +1,35 @@
 <?php
+  require_once('album_fns.php');
+  session_start();
 
-/**
- * @author switch
- * @copyright 2015
- * 网站首页，显示系统中的图书目录
- */
-    //require_once语句和require语句完全相同,唯一区别是PHP会检查该文件是否已经被包含过,如果是则不会再次包含。
-    require_once('album_fns.php');
+  do_html_header();?>
+  <div class="wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="catgories-title">
+            <p>全部专辑分类</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="catgories-content">
+       <?php
+       $cat_array = get_categories();
+       display_categories($cat_array);
+        ?>
+    </div>
+  </div>
 
-    session_start();    //开始会话
-  //  do_html_header('Welcome to Book-O-Rama');   //页头
-
-    echo "<p>Please choose a category:</p>";
-
-    $cat_array = get_categories();  //从数据库获取目录
-
-    display_categories($cat_array); //显示目录链接
-
-  //  do_html_footer();   //页尾
+<?php
+do_html_footer();
 ?>
+<script type="text/javascript">
+  $("a.list-group-item").hover(function(){
+    $(this).addClass("active");
+  },
+  function(){
+    $(this).removeClass("active");
+  }
+)
+</script>

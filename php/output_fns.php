@@ -2,7 +2,7 @@
 function do_html_URL($url, $name) {
   // output URL as link and br
 
-  echo ""?><br /><a href="<?php echo $url;?>"><?php echo $name;?></a><br />
+  echo ""?><a href="<?php echo $url;?>"  class="list-group-item" ><?php echo $name;?></a>
 <?php
 }
 /*
@@ -14,15 +14,16 @@ function display_categories($cate_array){
   if (!is_array($cate_array)) {
     echo "<p>现在没目录</p>";
     return ;
-    echo "<ul>";
+
   }
+  echo "<div class=\"list-group\">";
   foreach ($cate_array as $row) {
     $url = "show_cat.php?catid=".$row['catid'];
     $tite = $row['catname'];
     do_html_URL($url,$tite);
-    echo "</li>";
+
   }
-  echo "</ul>";
+   echo "</div>";
  }
 
  /*
@@ -84,4 +85,69 @@ function display_categories($cate_array){
        }
        echo "<hr/>";
  }
+ function do_html_header(){?>
+   <!DOCTYPE html>
+   <html lang="zh-CN">
+   <head>
+       <meta charset="utf-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <title>MusicStore</title>
+
+       <!-- Bootstrap -->
+       <link href="../css/bootstrap.min.css" rel="stylesheet">
+       <link href="../css/store.css" rel="stylesheet">
+       <link rel="stylesheet" href=".././css/csscatgories.css">
+       <!--[if lt IE 9]>
+         <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+         <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+       <![endif]-->
+   </head>
+   <body>
+      <nav class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom:0px; border-radius:0px" role="navigation">
+           <div class="container-fluid " style="height:66px">
+               <div class="navbar-header">
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+                 <span class="sr-only">切换导航</span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+             </button>
+                   <li><a class="navbar-brand brand" href="../storeapp.html">Music Store</a>
+                       <li>
+               </div>
+               <div class="navbar-right collapse navbar-collapse  navbar-inverse" id="example-navbar-collapse">
+                   <ul class="nav navbar-nav">
+                       <li><a href="#">分类</a></li>
+                       <li><a href="#">购物车</a></li>
+                       <li><a href="#">账户</a> </li>
+                   </ul>
+               </div>
+           </div>
+       </nav>
+<?php
+ }
+function do_html_footer()
+{?>
+  <footer class="bs-footer">
+    <div class="container">
+
+      <p>Designed and built by RenkoSky</p>
+      <p><a href="https://renkosky.github.io/">
+        Renko\'s Blog</a>
+  </p>
+    </div>
+  </footer>
+
+          <!-- jQuery (necessary for Bootstrap\'s JavaScript plugins) -->
+          <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+          <!-- Include all compiled plugins (below), or include individual files as needed -->
+          <script src="../js/jquery-3.1.0.min.js" charset="utf-8"></script>
+          <script src="../js/bootstrap.min.js"></script>
+          <script src="../js/bootstrap.js"></script>
+  </body>
+
+  </html>
+  <?php
+}
  ?>
