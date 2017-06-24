@@ -2,7 +2,7 @@
 function do_html_URL($url, $name) {
   // output URL as link and br
 
-  echo ""?><a href="<?php echo $url;?>"  class="list-group-item" ><?php echo $name;?></a>
+  ?><a href="<?php echo $url;?>" ><?php echo $name;?></a>
 <?php
 }
 /*
@@ -36,24 +36,30 @@ function display_categories($cate_array){
    if(!is_array($album_array)){
      echo "<p>现在没目录</p>";
    }else {
-     echo "<table width = \"100%\" border=\"0\">";
-
     foreach ($album_array as $row) {
       $url = "show_album.php?isbn=".$row['isbn'];
       echo "<tr><td>";
-    }
 
     if (@file_exists("../images/".$row['isbn'].".jpg")) {
-      $titie = "<img src=\"../images/".$row['isbn'].".jpg\" style=\"border: 3px solid black\"/>";
-      do_html_URL($url,$titie);
+      $titie = "<img src=\"../images/".$row['isbn'].".jpg\" style=\"border: 3px solid black\"/>";?>
 
-      echo "</td></tr>";
-    }
-    echo "</table>";
+        <div class="col-sm-3 col-md-4">
+          <div class="thumbnail">
+            <?php do_html_URL($url,$titie);?>
+            <div class="caption">
+              <h3><?php echo $row['title']; ?></h3>
+              <p><?php echo $row['author']; ?></p>
+              <p><?php echo $row['price']; ?>￥</p>
+              <p><?php echo $row['description']; ?></p>
+              <p><a href="#" class="btn btn-primary" role="button">添加至购物车</a> <a href="#" class="btn btn-default" role="button">详细信息</a></p>
+            </div>
+          </div>
+        </div>
+
+      <?php  }
+   }
   }
-  echo "<hr/>";
-
- }
+}
 
  function display_albums_details($album){
    if(is_array($album))
@@ -85,6 +91,8 @@ function display_categories($cate_array){
        }
        echo "<hr/>";
  }
+
+
  function do_html_header(){?>
    <!DOCTYPE html>
    <html lang="zh-CN">
@@ -127,8 +135,9 @@ function display_categories($cate_array){
        </nav>
 <?php
  }
-function do_html_footer()
-{?>
+
+
+function do_html_footer(){?>
   <footer class="bs-footer">
     <div class="container">
 
@@ -146,8 +155,5 @@ function do_html_footer()
           <script src="../js/bootstrap.min.js"></script>
           <script src="../js/bootstrap.js"></script>
   </body>
-
-  </html>
-  <?php
-}
- ?>
+  </html><?php
+}?>

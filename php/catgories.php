@@ -25,9 +25,11 @@
 do_html_footer();
 ?>
 <script type="text/javascript">
+
+  $(".list-group").children("a").addClass("list-group-item");
   $("a.list-group-item").hover(function(){
-    $(this).addClass("active");
-  },
+  $(this).addClass("active");
+ },
   function(){
     $(this).removeClass("active");
   }

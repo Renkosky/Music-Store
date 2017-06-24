@@ -30,15 +30,18 @@
   {
     $conn = db_connect();
     mysqli_query($conn,"set names utf8");
-    $query = "select catname from categories where cat id = '".$catid."'";
+    $query = "select catname from categories where catid = '".$catid."'";
     $result = @$conn ->query($query);
     if(!$result){
       return false;
+    
     }
     $num_cats = @$result ->num_rows;
     if($num_cats ==0)
+
     return false; //查询失败，原因为无目录
        $row = $result ->fetch_object();
+
        return $row ->catname;
   }
 
