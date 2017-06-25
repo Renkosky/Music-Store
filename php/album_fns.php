@@ -34,7 +34,7 @@
     $result = @$conn ->query($query);
     if(!$result){
       return false;
-    
+
     }
     $num_cats = @$result ->num_rows;
     if($num_cats ==0)
@@ -81,4 +81,38 @@
         $result = @$result ->fetch_assoc();
         return $result;
   }
+
+
+  function calculate_price($cart)     //计算购物车中物品总价
+    {
+        $price = 0.0;
+        if(is_array($cart))
+        {
+            $conn = db_connect();
+            foreach($cart as $isbn => $qty)
+            {
+                $query = "select price from albums where isbn ='". $isbn ."'";
+                $result = $conn ->query($query);
+                if($result)
+                {
+                    $item = $result ->fetch_object();
+                    $item_price = $item ->price;
+                    $price += $item_price * $qty;
+                }
+            }
+        }
+        return $price;
+    }
+
+    function calculate_items($cart) //计算购物车中的物品总数
+    {
+        $items = 0;
+        if(is_array($cart))
+        {
+            foreach($cart as $isbn => $qty)
+                $items += $qty;
+        }
+        return $items;
+    }
+
  ?>

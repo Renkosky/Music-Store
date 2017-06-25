@@ -1,4 +1,5 @@
 <?php
+
 function do_html_URL($url, $name) {
   // output URL as link and br
 
@@ -51,7 +52,7 @@ function display_categories($cate_array){
               <p><?php echo $row['author']; ?></p>
               <p><?php echo $row['price']; ?>￥</p>
               <p><?php echo $row['description']; ?></p>
-              <p><a href="#" class="btn btn-primary" role="button">添加至购物车</a> <a href="#" class="btn btn-default" role="button">详细信息</a></p>
+              <p><a href="show_cart.php?new=<?php echo $row['isbn'] ?>" class="btn btn-primary" role="button">添加至购物车</a> <a href="#" class="btn btn-default" role="button">详细信息</a></p>
             </div>
           </div>
         </div>
@@ -87,7 +88,7 @@ function display_categories($cate_array){
        }
        else
        {
-           echo "<p>The details of this book cannot be displayed at this time.</p>";
+           echo "<p>The details of this album cannot be displayed at this time.</p>";
        }
        echo "<hr/>";
  }
@@ -127,7 +128,9 @@ function display_categories($cate_array){
                <div class="navbar-right collapse navbar-collapse  navbar-inverse" id="example-navbar-collapse">
                    <ul class="nav navbar-nav">
                        <li><a href="#">分类</a></li>
-                       <li><a href="#">购物车</a></li>
+                       <li><a href="#">购物车(<?php if($_SESSION['items']){echo $_SESSION['items'];}else {
+                         echo "0";
+                       } ?>)</a></li>
                        <li><a href="#">账户</a> </li>
                    </ul>
                </div>
@@ -156,4 +159,83 @@ function do_html_footer(){?>
           <script src="../js/bootstrap.js"></script>
   </body>
   </html><?php
-}?>
+}
+
+
+
+function display_cart($cart,$change = true,$images = 1)  //显示购物车
+    {
+        echo "<table border=\"0\" width=\"100%\" cellspacing=\"0\">
+                <form action=\"show_cart.php\" method=\"post\">
+                    <tr>
+                        <th colspan=\"". (1 + $images) ."\" bgcolor=\" #cccccc\">Item</th>
+                        <th bgcolor=\"#cccccc\">Price</th>
+                        <th bgcolor=\"#cccccc\">Quantity</th>
+                        <th bgcolor=\"#cccccc\">Total</th>
+                    </tr>";
+        //输出购物车内容
+        foreach($cart as $isbn => $qty)
+        {
+            $album = get_album_details($isbn);
+            echo "<tr>";
+            if($images == true)
+            {
+                echo "<td align=\"left\">";
+                if(file_exists("../images/". $isbn .".jpg"))
+                {
+                    $size = getimagesize("../images/". $isbn .".jpg");
+                    if(($size[0] > 0) && ($size[1] > 1))    //图片长宽
+                    {
+                        echo "<img src=\"../images/". $isbn .".jpg\"
+                                style=\"border: 1px solid black\"
+                                width=\"". ($size[0] / 3) ."\"
+                                height=\"". ($size[1] / 3) ."\"/>";
+                    }
+                }
+                else
+                    echo " ";
+                echo "</td>";
+            }
+            echo "<td align=\"left\">
+                    <a href=\"show_album.php?isbn=". $isbn ."\">". $album['title'] ."</a> by". $album['author'] ."</td>
+                    <td align=\"center\">\$". number_format($album['price'],2) ."</td><td align=\"center\">";
+
+            //如果允许更改数量
+            if ($change == true)
+            {
+                echo "<input type=\"text\" name=\"".$isbn."\" value=\"".$qty."\" size=\"3\">";
+            }
+            else
+            {
+                echo $qty;
+            }
+                echo "</td><td align=\"center\">\$".number_format($album['price']*$qty,2)."</td></tr>\n";
+  }
+
+
+        //总数
+        echo "<tr>
+                <th colspan=\"". (2 + $images) ."\" bgcolor = \"#cccccc\"> </th>
+                <th align = \"center\" bgcolor=\"#cccccc\">". $_SESSION['items'] ."</th>
+                <th align = \"center\" bgcolor=\"#cccccc\">￥". number_format($_SESSION['total_price'],2) ."</th></tr>";
+
+        //保存按钮
+        if($change == true)
+        {
+            echo "<tr>
+                    <td colspan = \"". (2 + $images) ."\"> </td>
+                    <td align = \"center \">
+                        <input type=\"hidden\" name=\"save\"value=\"true\" />
+                        <input type = \"image\" src = \"../images/save-changes.gif\" border = \" 0 \" alt = \" Save Changes \" />
+                         <a href=\"check.php\">付款</a>
+                    </td>
+                    <td> </td>
+                    </tr>";
+
+        }
+        echo "</form></table>";
+    }
+
+
+
+?>
