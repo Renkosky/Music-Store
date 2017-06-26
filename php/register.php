@@ -17,7 +17,8 @@
       }
 
       register($username,$email,$password);
-      echo 'Your registration was successful!';
+      echo '您已成功注册，点击返回登录页面';
+      echo "<a href=\"login.html\">返回</a>";
     } catch (Exception $e) {
       echo $e->getMessage();
     }

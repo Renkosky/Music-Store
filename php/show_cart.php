@@ -53,8 +53,12 @@
 
 
    if((@$_SESSION['cart']) && (array_count_values($_SESSION['cart'])))
-   { ?>  <div class="wrap">
-      <?php  display_cart($_SESSION['cart']);?>
+   { ?>
+     <div class="wrap">
+
+           <?php  display_cart($_SESSION['cart']);?>
+
+
      </div><?php
    }
    else

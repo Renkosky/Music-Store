@@ -9,6 +9,7 @@
     <?php  display_cart($_SESSION['cart'] ,false)?>
    </div>
 <?php
-  session_destroy();
+  $_SESSION['items'] = 0;
+  $_SESSION['total_price'] = '0.00';
   do_html_footer();
  ?>

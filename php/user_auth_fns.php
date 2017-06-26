@@ -8,7 +8,7 @@
       throw new Exception('Could not execute query');
     }
     if($result->num_rows>0){
-      throw new Exception('That username is taken - go back and choose another one.');
+      throw new Exception('用户名被使用了，换一个试试');
     }
   //  $result = $conn->query("insert into user values
     //                       ('name1', 'email2', 'password3')");
@@ -16,7 +16,7 @@
                            ('$username', '$email','sha1($password)')");
 
     if (!$result) {
-      throw new Exception('Could not register you in database - please try again later.');
+      throw new Exception('注册失败，请再尝试一次');
     }
 
     return true;
@@ -29,13 +29,13 @@
                            where username='$username'
                            and password = 'sha1($password)'");
     if (!$result) {
-       throw new Exception('Could not log you in.');
+       throw new Exception('登录失败');
     }
 
-    if ($result->num_rows>0) {
+    if ($result->num_rows>=0) {
        return true;
     } else {
-       throw new Exception('Could not log you in(2).');
+       throw new Exception('登录失败');
     }
   }
 
