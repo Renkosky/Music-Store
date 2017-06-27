@@ -2,9 +2,11 @@
 <?php
 require_once 'output_fns.php';
 session_start();
-$_SESSION['cart'] =array();
-$_SESSION['items'] = 0;
-$_SESSION['total_price'] = '0.00';
+if (!$_SESSION['cart']) {
+  $_SESSION['cart'] =array();
+  $_SESSION['items'] = 0;
+  $_SESSION['total_price'] = '0.00';
+}
 do_html_header(); ?>
     <div class="titlewrap">
         <div class="layer">

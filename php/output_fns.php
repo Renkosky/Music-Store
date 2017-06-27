@@ -45,14 +45,18 @@ function display_categories($cate_array){
       $titie = "<img src=\"../images/".$row['isbn'].".jpg\" style=\"border: 3px solid black\"/>";?>
 
         <div class="col-sm-3 col-md-4">
-          <div class="thumbnail">
+          <div class="thumbnail minsize">
             <?php do_html_URL($url,$titie);?>
             <div class="caption">
               <h3><?php echo $row['title']; ?></h3>
               <p><?php echo $row['author']; ?></p>
               <p><?php echo $row['price']; ?>￥</p>
               <p><?php echo $row['description']; ?></p>
-              <p><a href="show_cart.php?new=<?php echo $row['isbn'] ?>" class="btn btn-primary" role="button">添加至购物车</a> <a href="#" class="btn btn-default" role="button">详细信息</a></p>
+              <div class="buttom-pos">
+                <a href="show_cart.php?new=
+                  <?php echo $row['isbn'] ?>" class="btn btn-primary" role="button">
+                    添加至购物车</a>
+                <a href="#" class="btn btn-default" role="button">详细信息</a></div>
             </div>
           </div>
         </div>
@@ -128,9 +132,9 @@ function display_categories($cate_array){
                <div class="navbar-right collapse navbar-collapse  navbar-inverse" id="example-navbar-collapse">
                    <ul class="nav navbar-nav">
                        <li><a href="catgories.php">分类</a></li>
-                       <li><a href="show_cart.php">购物车(<?php if($_SESSION['items']){echo $_SESSION['items'];}else {
-                         echo "0";
-                       } ?>)</a></li>
+                       <li><a href="show_cart.php">购物车<?php if($_SESSION['items']){echo "<span class=\"badge\">".$_SESSION['items']."</span>";}else {
+                         echo "<span class=\"badge\">0</span>";
+                       } ?></a></li>
                        <li><a href="#"><?php echo "你好，".$_SESSION['valid_user'] ?></a> </li>
                    </ul>
                </div>

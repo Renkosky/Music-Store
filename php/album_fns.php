@@ -51,6 +51,7 @@
   */
   function get_albums($catid){
     $conn = db_connect();
+    mysqli_query($conn,"set names utf8");
     $query = "select * from albums where catid = '".$catid."'";
     $result = @$conn ->query($query);
     if(!$result){
@@ -74,6 +75,7 @@
             return false;
 
         $conn = db_connect();   //连接数据库
+        mysqli_query($conn,"set names utf8");
         $query = "select * from albums where isbn = '". $isbn ."'";
         $result = @$conn ->query($query);
         if(!$result)    //查询失败，原因为查询出错

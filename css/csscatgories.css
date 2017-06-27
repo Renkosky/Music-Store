@@ -1,8 +1,7 @@
 .wrap{
   display: block;
   min-height: 700px;
-  margin: 66px 20% 10% 20% ;
-  padding-top: 10%;
+  padding-top: 15%;
 }
 
 .catgories-title{
@@ -12,4 +11,14 @@
 }
 .catgories-content{
   padding-top: 10%;
+}
+.minsize{
+  min-height: 535px;
+}
+.minsize div:nth-child(2){
+  min-height: 250px;
+}
+.buttom-pos{
+  position:absolute;
+  bottom:5%;
 }
