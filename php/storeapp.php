@@ -1,11 +1,11 @@
-
 <?php
 require_once 'output_fns.php';
 session_start();
-if (!$_SESSION['cart']) {
-  $_SESSION['cart'] =array();
-  $_SESSION['items'] = 0;
-  $_SESSION['total_price'] = '0.00';
+if(!isset($_SESSION['cart']))   //购物车中无物品
+{
+    $_SESSION['cart'] =array();
+    $_SESSION['items'] = 0;
+    $_SESSION['total_price'] = '0.00';
 }
 do_html_header(); ?>
     <div class="titlewrap">
@@ -19,7 +19,7 @@ do_html_header(); ?>
                 <div class="site-text">
                     <p>在这里，你可以...</p>
                     </br>
-                    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true">
+                    <a href="#"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" onclick="click_scroll()"></a>
             </div>
             </span></p>
                     </br>
@@ -31,7 +31,7 @@ do_html_header(); ?>
       <div class="layer">
         <div class="container text-center">
           <div class="row">
-            <div class="col-md-12 storetitle">
+            <div class="col-md-12 storetitle" >
                 在“梦之城”与TA相遇
             </div>
           </div>
@@ -44,6 +44,7 @@ do_html_header(); ?>
               </div>
             </div>
           </div>
+          <a href="#"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" onclick="click_scroll2()"></a>
         </div>
       </div>
     </div>
@@ -51,7 +52,7 @@ do_html_header(); ?>
       <div class="layer">
         <div class="container text-center">
           <div class="row">
-            <div class="col-md-12 storetitle">
+            <div class="col-md-12 storetitle" >
                 与“怪盗团”盗窃人心
             </div>
           </div>
@@ -64,6 +65,7 @@ do_html_header(); ?>
               </div>
             </div>
           </div>
+          <a href="#"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" onclick="click_scroll3()"></a>
         </div>
       </div>
     </div>
@@ -83,4 +85,27 @@ do_html_header(); ?>
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+        function click_scroll() {
+          var s1Scroll_offset = $("#movie2").offset();
+          var bodyScrolltop = $("body,html").scrollTop();
+          $("body,html").animate({
+            scrollTop:s1Scroll_offset.top //
+          },1000);
+        }
+        function click_scroll2() {
+          var s1Scroll_offset = $("#game").offset();
+          var bodyScrolltop = $("body,html").scrollTop();
+          $("body,html").animate({
+            scrollTop:s1Scroll_offset.top //
+          },1000);
+        }
+          function click_scroll3() {
+            var s1Scroll_offset = $("#movie1").offset();
+            var bodyScrolltop = $("body,html").scrollTop();
+            $("body,html").animate({
+              scrollTop:s1Scroll_offset.top //
+            },1000);
+        }
+</script>
 <?php do_html_footer(); ?>

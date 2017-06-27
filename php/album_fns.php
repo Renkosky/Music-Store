@@ -91,6 +91,7 @@
         if(is_array($cart))
         {
             $conn = db_connect();
+            mysqli_query($conn,"set names utf8");
             foreach($cart as $isbn => $qty)
             {
                 $query = "select price from albums where isbn ='". $isbn ."'";

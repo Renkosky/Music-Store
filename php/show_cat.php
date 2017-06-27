@@ -2,7 +2,6 @@
   include_once 'album_fns.php';
   require_once 'output_fns.php';
   session_start();
-  $_SESSION['items'] = 0;
   do_html_header();
   @$catid=$_GET['catid'];
   $_SESSION['catid']=$catid;
@@ -31,7 +30,7 @@
       }?>
       </ol>
     </div>
-   <div class="container">
+   <div class="container" id="album">
      <div class="row">
        <?php display_albums($albums_array);?>
    </div>

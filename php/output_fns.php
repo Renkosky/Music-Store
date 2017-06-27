@@ -53,8 +53,7 @@ function display_categories($cate_array){
               <p><?php echo $row['price']; ?>￥</p>
               <p><?php echo $row['description']; ?></p>
               <div class="buttom-pos">
-                <a href="show_cart.php?new=
-                  <?php echo $row['isbn'] ?>" class="btn btn-primary" role="button">
+                <a href="show_cart.php?new=<?php echo $row['isbn'] ?>" class="btn btn-primary" role="button">
                     添加至购物车</a>
                 <a href="#" class="btn btn-default" role="button">详细信息</a></div>
             </div>
@@ -115,6 +114,7 @@ function display_categories($cate_array){
          <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
          <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
        <![endif]-->
+
    </head>
    <body>
       <nav class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom:0px; border-radius:0px" role="navigation">
@@ -132,7 +132,7 @@ function display_categories($cate_array){
                <div class="navbar-right collapse navbar-collapse  navbar-inverse" id="example-navbar-collapse">
                    <ul class="nav navbar-nav">
                        <li><a href="catgories.php">分类</a></li>
-                       <li><a href="show_cart.php">购物车<?php if($_SESSION['items']){echo "<span class=\"badge\">".$_SESSION['items']."</span>";}else {
+                       <li><a href="show_cart.php">购物车<?php if(isset($_SESSION['items'])){echo "<span class=\"badge\">".$_SESSION['items']."</span>";}else {
                          echo "<span class=\"badge\">0</span>";
                        } ?></a></li>
                        <li><a href="#"><?php echo "你好，".$_SESSION['valid_user'] ?></a> </li>
@@ -172,6 +172,7 @@ function display_cart($cart,$change = true,$images = 1){
          <form action=\"show_cart.php\" method=\"post\">
           <tr>
              <th>物品</th>
+             <th colspan=\"2\">名字</th>
              <th>作者</th>
              <th>价格</th>
              <th>个数</th>
@@ -198,6 +199,7 @@ function display_cart($cart,$change = true,$images = 1){
                 else
                 echo "</td>";
             }
+            echo "<td colspan=\"2\">".$album['title']."</td>";
             echo "<td align=\"left\">"
                     .$album['author']."</td>
                     <td>￥". number_format($album['price'],2) ."</td><td>";
@@ -215,7 +217,7 @@ function display_cart($cart,$change = true,$images = 1){
   }
         //总数
         echo "<tr>
-                <th colspan=\"3\"></th>
+                <th colspan=\"5\"></th>
                 <th>". $_SESSION['items'] ."</th>
                 <th>￥". number_format($_SESSION['total_price'],2) ."</th></tr>";
 
@@ -223,11 +225,11 @@ function display_cart($cart,$change = true,$images = 1){
         if($change == true)
         {
             echo "<tr>
-                    <td colspan = \"2\"> </td>
+                    <td colspan = \"4\"> </td>
                     <td>
                         <input type=\"hidden\" name=\"save\"value=\"true\" />
                         <input type =\"submit\" class=\"btn btn-primary\" value=\"保存数量\"/></td>
-                        <td><a href=\"show_cat.php\" class=\"btn btn-success\">继续购买</a></td>
+                        <td><a href=\"show_cat.php?catid=".$_SESSION['catid']."\" class=\"btn btn-success\">继续购买</a></td>
                         <td><a href=\"check.php\" class=\"btn btn-danger\">选择付款</a></td>";
 
         }

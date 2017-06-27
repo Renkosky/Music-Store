@@ -55,31 +55,32 @@
    if((@$_SESSION['cart']) && (array_count_values($_SESSION['cart'])))
    { ?>
      <div class="wrap">
-       <ol class="breadcrumb">
-         <li><a href="storeapp.php">首页</a></li>
-         <li><a href="catgories.php">全部分类</a></li>
-         <?php switch ($_SESSION['catid']) {
-           case 1:
-           echo " <li><a class=\"show_cat.php?catid=1\">影视原声</a></li>";
-           break;
-           case 2:
-           echo " <li><a href=\"show_cat.php?catid=2\">游戏原声</a></li>";
-           break;
-           case 3:
-           echo " <li><a href=\"show_cat.php?catid=3\">动漫原声</a></li>";
-           break;
-           default:
-           # code...
+       <div class="container">
+         <ol class="breadcrumb">
+           <li><a href="storeapp.php">首页</a></li>
+           <li><a href="catgories.php">全部分类</a></li>
+           <?php switch ($_SESSION['catid']) {
+             case 1:
+             echo " <li><a class=\"show_cat.php?catid=1\">影视原声</a></li>";
              break;
-         }?>
-         <li class="active">购物车</li>
-       </ol>
-           <?php  display_cart($_SESSION['cart']);?>
-     </div><?php
+             case 2:
+             echo " <li><a href=\"show_cat.php?catid=2\">游戏原声</a></li>";
+             break;
+             case 3:
+             echo " <li><a href=\"show_cat.php?catid=3\">动漫原声</a></li>";
+             break;
+             default:
+             break;
+           }?>
+           <li class="active">购物车</li>
+         </ol>
+             <?php  display_cart($_SESSION['cart']);?>
+              </div>
+       </div><?php
    }
    else
    {
-       echo "<p>There are no items in your cart</p><hr/>";
+       echo "<h1>你的购物车中没有商品</h1>";
    }
    //如果只有一种物品添加到购物车，可以继续购物
    do_html_footer();
