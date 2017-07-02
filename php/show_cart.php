@@ -61,7 +61,7 @@
            <li><a href="catgories.php">全部分类</a></li>
            <?php switch ($_SESSION['catid']) {
              case 1:
-             echo " <li><a class=\"show_cat.php?catid=1\">影视原声</a></li>";
+             echo " <li><a href=\"show_cat.php?catid=1\">影视原声</a></li>";
              break;
              case 2:
              echo " <li><a href=\"show_cat.php?catid=2\">游戏原声</a></li>";
@@ -69,6 +69,8 @@
              case 3:
              echo " <li><a href=\"show_cat.php?catid=3\">动漫原声</a></li>";
              break;
+             case 4:
+             echo " <li><a href=\"show_cat.php?catid=4\">动漫原声</a></li>";
              default:
              break;
            }?>

@@ -14,20 +14,7 @@
       <ol class="breadcrumb">
       <li><a href="storeapp.php">首页</a></li>
       <li><a href="catgories.php">全部分类</a></li>
-      <?php switch ($_SESSION['catid']) {
-        case 1:
-        echo " <li class=\"active\">影视原声</li>";
-        break;
-        case 2:
-        echo " <li class=\"active\">游戏原声</li>";
-        break;
-        case 3:
-        echo " <li class=\"active\">动漫原声</li>";
-        break;
-        default:
-        # code...
-          break;
-      }?>
+      <?php echo "<li class=\"active\">".get_category_name($_SESSION['catid'])."</li>"; ?>
       </ol>
     </div>
    <div class="container" id="album">

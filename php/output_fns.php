@@ -42,7 +42,7 @@ function display_categories($cate_array){
       echo "<tr><td>";
 
     if (@file_exists("../images/".$row['isbn'].".jpg")) {
-      $titie = "<img src=\"../images/".$row['isbn'].".jpg\" style=\"border: 3px solid black\"/>";?>
+      $titie = "<img src=\"../images/".$row['isbn'].".jpg\"/>";?>
 
         <div class="col-sm-3 col-md-4">
           <div class="thumbnail minsize">
@@ -55,7 +55,7 @@ function display_categories($cate_array){
               <div class="buttom-pos">
                 <a href="show_cart.php?new=<?php echo $row['isbn'] ?>" class="btn btn-primary" role="button">
                     添加至购物车</a>
-                <a href="#" class="btn btn-default" role="button">详细信息</a></div>
+                <a href="<?php echo "show_album.php?isbn=".$row['isbn'];?>" class="btn btn-default" role="button">详细信息</a></div>
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@
     if ($username||$password) {
         login($username,$password);
         $_SESSION['valid_user'] = $username;
+        header("Location: http://localhost/musicStore/php/storeapp.php");
     }
 
   } catch (Exception $e) {

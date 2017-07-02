@@ -1,6 +1,6 @@
 <?php
 function db_connect() {
-   $result = new mysqli('localhost', 'Renko', 'iloveshenhua!', 'album');
+   $result = new mysqli('localhost','Renko','iloveshenhua!','album');
    if (!$result) {
      throw new Exception('连接不到数据库0.0');
    } else {
