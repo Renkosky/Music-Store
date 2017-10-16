@@ -26,7 +26,7 @@
     $conn = db_connect();
 
     $result = $conn->query("select * from user where username='$username' and password = 'sha1($password)'");
-    
+
     if (!$result) {
        throw new Exception('登录失败');
     }
@@ -34,7 +34,7 @@
     if ($result->num_rows>0) {
        return true;
     } else {
-       throw new Exception('登录失败');
+       throw new Exception('登录失败,密码或用户名错误');
     }
   }
 

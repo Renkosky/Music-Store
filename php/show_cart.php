@@ -50,11 +50,12 @@
 
    do_html_header();
 
-
-
+ ?>
+ <div class="wrap"> 
+<?php
    if((@$_SESSION['cart']) && (array_count_values($_SESSION['cart'])))
-   { ?>
-     <div class="wrap">
+   {?>
+
        <div class="container">
          <ol class="breadcrumb">
            <li><a href="storeapp.php">首页</a></li>

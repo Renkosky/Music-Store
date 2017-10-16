@@ -12,9 +12,9 @@
     }
 
   } catch (Exception $e) {
-    echo 'You could not be logged in.
-          You must be logged in to view this page.';
-          $link = 'newindex2.html';
-          echo "<a href='{$link}' title=''>return</a>";
+    echo ' 你无法登陆
+           你的用户名或密码错误。';
+          $link = '../login.html';
+          echo "<a href='{$link}' title=''>返回</a>";
   }
  ?>
