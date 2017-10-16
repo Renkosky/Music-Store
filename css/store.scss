@@ -1,0 +1,109 @@
+@import 'color.scss';
+
+.nav-container {
+    height: 66px;
+}
+
+.nav li a {
+    padding: 23px 15px 15px 15px;
+}
+
+.brand {
+    padding: 23px 15px 15px 15px;
+}
+
+.titlewrap {
+    width: 100%;
+    background-size: cover;
+    background-image: url("../images/firecracker.jpg");
+    /*background-color: rgba(9, 0, 10, 0.86);*/
+}
+
+.layer {
+    padding: 20% 0 20% 0;
+    color: $white;
+}
+
+.storetitle {
+    margin-bottom: 80px;
+    font-size: 45px;
+}
+
+.site-text {
+    font-size: 20px;
+}
+
+.storytext {
+    padding: 300px 0px 100px 0px;
+    margin: 0 220px 0 220px;
+    font-size: 40px;
+}
+
+.section {
+    width: 100%;
+    background-size: cover;
+    color: $white;
+}
+
+.button-white a {
+    display: block;
+    margin: 0 30% 0 30%;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    min-width: 100px;
+    height: 3rem;
+    border: 1px solid $white;
+    border-radius: 1px;
+    color: $white;
+    background-color:$grey;
+        &:hover {
+        text-decoration: none;
+        transform: scale(1.3);
+        transition: 0.2s;
+        color: $black;
+        background-color: white;
+    }
+}
+
+.bs-footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color:$grey;
+    text-align: center;
+    background-color: $black;
+}
+
+.formarea {
+    margin: 0 20% 10% 20%;
+    min-height: 700px;
+}
+
+.formtext {
+    padding: 50px 10px 10px 10px;
+    box-shadow: -0.1px 0.5px 5px $blue;
+    border-radius: 6px;
+}
+
+.loginform {
+    padding: 0 20% 0 20%;
+}
+
+.stietitle {
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding-bottom: 40px;
+    border-bottom: 1px solid $blue;
+    font-size: 60px;
+    color: $blue;
+}
+
+#movie1 {
+    background-image: url("../images/jojo.jpg");
+}
+
+#movie2 {
+    background-image: url("../images/lovecity.jpg");
+}
+
+#game {
+    background-image: url("../images/P5.jpg");
+}

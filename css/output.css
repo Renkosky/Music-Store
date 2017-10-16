@@ -1,0 +1,13 @@
+.wrap { display: block; min-height: 1366px; padding-top: 15%; }
+
+.catgories-title { padding-bottom: 5%; border-bottom: 2px solid #34b0d9; font-size: 30px; }
+
+.catgories-content { padding-top: 10%; }
+
+.minsize { min-height: 535px; }
+
+.minsize div:nth-child(2) { min-height: 250px; }
+
+.buttom-pos { position: absolute; bottom: 5%; }
+
+/*# sourceMappingURL=output.css.map */

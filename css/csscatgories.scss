@@ -1,0 +1,32 @@
+$blue :rgb(52, 176, 217);
+.wrap {
+  display: block;
+  min-height: 1366px;
+  padding-top: 15%;
+}
+
+.catgories-title {
+  padding-bottom: 5%;
+  border-bottom: 2px solid $blue;
+  font-size: 30px;
+}
+
+.catgories-content {
+  padding-top: 10%;
+}
+
+.minsize {
+  min-height: 535px;
+}
+
+.minsize div:nth-child(2) {
+  min-height: 250px;
+}
+
+.buttom-pos {
+  position: absolute;
+  bottom: 5%;
+}
+
+
+
